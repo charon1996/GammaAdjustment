@@ -1,0 +1,64 @@
+﻿<Window x:Class="GammaAdjustment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GammaAdjustment"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        AllowDrop="True"
+        Drop="Window_Drop"
+        >
+    <Window.Resources>
+       
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="180"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Source-->
+        <Grid Grid.Column="0">
+            <TextBlock x:Name="SourceImageTxt"/>
+            <Image x:Name="SourceImageContainer"/>
+        </Grid>
+
+        <!--Comparison-->
+        <Grid Grid.Column="1">
+            <TextBlock x:Name="ComparisonImageTxt"/>
+            <Image x:Name="AdjustedImageContainer"/>
+        </Grid>
+
+        <!--Adjustment panel-->
+        <Grid Grid.Column="2">
+            <TreeView HorizontalAlignment="Right" Width="180">
+                <TreeViewItem Header="Brightness" IsExpanded="True">
+                    <TreeViewItem Header="Gamma" IsExpanded="True">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal"  Margin="-40,0,0,10">
+                                <TextBlock Text="R:"/>
+                                <Slider x:Name="slider_bightness_r" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
+                                <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_r }"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"  Margin="-40,0,0,10">
+                                <TextBlock Text="G:"/>
+                                <Slider x:Name="slider_bightness_g" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
+                                <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_g }"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"  Margin="-40,0,0,0">
+                                <TextBlock Text="B:"/>
+                                <Slider x:Name="slider_bightness_b" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
+                                <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_b }"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </TreeViewItem>
+                </TreeViewItem>
+
+            </TreeView>
+
+        </Grid>
+    </Grid>
+</Window>
