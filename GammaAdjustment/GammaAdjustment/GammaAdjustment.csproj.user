@@ -7,6 +7,20 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Laboratory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Laboratory1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Laboratory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Laboratory1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

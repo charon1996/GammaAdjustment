@@ -1,0 +1,34 @@
+﻿<Window x:Class="GammaAdjustment.Laboratory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GammaAdjustment"
+        mc:Ignorable="d"
+        Title="Laboratory" Height="450" Width="800">
+    <Grid>
+        <!-- 图像显示区 -->
+        <Image x:Name="ImageViewer" Stretch="Uniform"/>
+        <!-- 曲线编辑区 -->
+        <Canvas x:Name="CurveCanvas" Width="256" Height="256" 
+            Background="#EEE" MouseDown="CurveCanvas_MouseDown">
+            <!-- 绘制曲线的 Path -->
+            <Path x:Name="CurvePath" Stroke="Black" StrokeThickness="2"/>
+            <!-- 控制点（使用 ItemsControl 生成 Thumb） -->
+            <ItemsControl ItemsSource="{Binding ControlPoints}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Thumb Width="10" Height="10" Background="Blue" Cursor="Hand"
+                   Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}"
+                   DragDelta="ControlPoint_DragDelta"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Canvas>
+    </Grid>
+</Window>

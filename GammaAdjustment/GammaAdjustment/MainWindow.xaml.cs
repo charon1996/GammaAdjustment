@@ -98,5 +98,19 @@ namespace GammaAdjustment
             bitmap.AddDirtyRect(new Int32Rect(0, 0, bitmap.PixelWidth, bitmap.PixelHeight));
             bitmap.Unlock();
         }
+
+     
+
+        private void Laboratory0_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new Laboratory();
+            win.Show();
+        }
+
+        private void Laboratory1_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new Laboratory1();
+            win.Show();
+        }
     }
 }

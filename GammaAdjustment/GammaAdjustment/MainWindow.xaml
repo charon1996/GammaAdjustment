@@ -13,52 +13,76 @@
        
     </Window.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="180"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <!--Source-->
-        <Grid Grid.Column="0">
-            <TextBlock x:Name="SourceImageTxt"/>
-            <Image x:Name="SourceImageContainer"/>
-        </Grid>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Open"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Save"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="ColorMap"/>
+            <MenuItem Header="Laboratory">
+                <MenuItem x:Name="Laboratory0" Header="Laboratory0" Click="Laboratory0_Click"/>
+                <MenuItem x:Name="Laboratory1" Header="Laboratory1" Click="Laboratory1_Click"/>
+            </MenuItem>
+            
+        </Menu>
+            
+        
 
-        <!--Comparison-->
-        <Grid Grid.Column="1">
-            <TextBlock x:Name="ComparisonImageTxt"/>
-            <Image x:Name="AdjustedImageContainer"/>
-        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+            <!--Source-->
+            <Grid Grid.Column="0">
+                <TextBlock x:Name="SourceImageTxt"/>
+                <Image x:Name="SourceImageContainer"/>
+            </Grid>
 
-        <!--Adjustment panel-->
-        <Grid Grid.Column="2">
-            <TreeView HorizontalAlignment="Right" Width="180">
-                <TreeViewItem Header="Brightness" IsExpanded="True">
-                    <TreeViewItem Header="Gamma" IsExpanded="True">
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal"  Margin="-40,0,0,10">
-                                <TextBlock Text="R:"/>
-                                <Slider x:Name="slider_bightness_r" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
-                                <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_r }"/>
+            <!--Comparison-->
+            <Grid Grid.Column="1">
+                <TextBlock x:Name="ComparisonImageTxt"/>
+                <Image x:Name="AdjustedImageContainer"/>
+            </Grid>
+
+            <!--Adjustment panel-->
+            <Grid Grid.Column="2">
+                <TreeView HorizontalAlignment="Right" Width="180">
+                    <TreeViewItem Header="Brightness" IsExpanded="True">
+                        <TreeViewItem Header="Brightness" IsExpanded="True">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal"  Margin="-40,0,0,10">
+                                    <TextBlock Text="R:"/>
+                                    <Slider x:Name="slider_bightness_r" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
+                                    <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_r }"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  Margin="-40,0,0,10">
+                                    <TextBlock Text="G:"/>
+                                    <Slider x:Name="slider_bightness_g" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
+                                    <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_g }"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  Margin="-40,0,0,0">
+                                    <TextBlock Text="B:"/>
+                                    <Slider x:Name="slider_bightness_b" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
+                                    <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_b }"/>
+                                </StackPanel>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal"  Margin="-40,0,0,10">
-                                <TextBlock Text="G:"/>
-                                <Slider x:Name="slider_bightness_g" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
-                                <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_g }"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal"  Margin="-40,0,0,0">
-                                <TextBlock Text="B:"/>
-                                <Slider x:Name="slider_bightness_b" Minimum="0" Maximum="100" Value="0" Width="120" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"/>
-                                <TextBlock Text="{Binding Path=Value, ElementName=slider_bightness_b }"/>
-                            </StackPanel>
-                        </StackPanel>
 
+                        </TreeViewItem>
                     </TreeViewItem>
-                </TreeViewItem>
 
-            </TreeView>
+                </TreeView>
+
+            </Grid>
 
         </Grid>
+        
     </Grid>
 </Window>

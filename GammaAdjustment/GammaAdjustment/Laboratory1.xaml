@@ -1,0 +1,43 @@
+﻿<Window x:Class="GammaAdjustment.Laboratory1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GammaAdjustment"
+        mc:Ignorable="d"
+        Title="Laboratory1" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 图像显示 -->
+        <Image Grid.Column="0" x:Name="PreviewImage" Stretch="Uniform"/>
+
+        <!-- 调整面板 -->
+        <StackPanel Grid.Column="1">
+            <!-- 其他调整控件... -->
+
+            <!-- 曲线编辑器 -->
+            <GroupBox Header="Tone Curve">
+                <TabControl>
+                    <TabItem Header="RGB">
+                        <local:CurveEditor x:Name="RgbCurve" Height="200"/>
+                    </TabItem>
+                    <TabItem Header="Red">
+                        <local:CurveEditor x:Name="RedCurve" Height="200"/>
+                    </TabItem>
+                    <TabItem Header="Green">
+                        <local:CurveEditor x:Name="GreenCurve" Height="200"/>
+                    </TabItem>
+                    <TabItem Header="Blue">
+                        <local:CurveEditor x:Name="BlueCurve" Height="200"/>
+                    </TabItem>
+                </TabControl>
+            </GroupBox>
+
+            <Button Content="Apply" Click="ApplyCurve_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
